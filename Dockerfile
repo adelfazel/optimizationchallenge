@@ -43,13 +43,10 @@ FROM minizinc/mznc2021:latest
 # We want to copy from the builder stage, so we use --from=builder.
 # If we omitted that, we would copy a file from the local computer.
 COPY --from=builder /install /chuffed
-
 # Add Chuffed to the MiniZinc search path.
 #
 # The ENV statement sets an environment variable for the image.
 ENV MZN_SOLVER_PATH=/chuffed/share/minizinc/solvers:${MZN_SOLVER_PATH}
 
-# Set Chuffed as the default solver.
-#
 # See https://www.minizinc.org/doc-2.5.5/en/command_line.html#user-configuration-files
 RUN echo '{"tagDefaults": [["", "org.chuffed.chuffed"]]}' > $HOME/.minizinc/Preferences.json
