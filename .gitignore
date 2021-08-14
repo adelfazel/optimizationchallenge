@@ -1,0 +1,6 @@
+.*__pycache__.*
+_coursera
+handout.pdf
+submit.py
+data/
+__pycache__/
